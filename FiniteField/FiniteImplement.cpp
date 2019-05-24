@@ -7,11 +7,11 @@ FieldElement::FieldElement(){}
 // which is what we should raise when we get an inappropriate value.
 FieldElement::FieldElement( int  n ,  int p)
 {
-  num = n;        // intializing values
-  prime = p;
-  if (num >= prime || num < 0)
-      cerr << "Num " << num << " not in field range 0 to " << prime -1 << endl;
+		num = n;        // intializing values
+  	prime = p;
 
+   if (num >= prime || num < 0)
+      cerr << "Num " << num << " not in field range 0 to " << prime -1 << endl;
 }
 
 // The  method checks if two objects of class FieldElement are equal.
@@ -52,7 +52,7 @@ FieldElement FieldElement::operator-(FieldElement & s)
 
 FieldElement FieldElement::operator*(FieldElement & s)
 {
-  if (s.prime != prime)
+  if ( prime != s.prime)
      		 cerr << "Cannot multiply two numbers in different Fields\n";
   FieldElement temp;
   temp.num = (num * s.num) % s.prime;

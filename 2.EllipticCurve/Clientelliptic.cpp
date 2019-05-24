@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-
+#include "../FiniteField/finiteHeader.h"
 using namespace std;
 
 class Point
@@ -8,7 +8,8 @@ class Point
     private:
         int x, y, a , b;
     public:
-    Point(int, int, int j = 0, int m = 7); // you give default here
+    Point(int, int, int, int ); // you give default here
+  //  Point();
     ~Point();
     bool operator==(Point & s);
     Point operator+(Point & s);
@@ -17,6 +18,8 @@ class Point
         
 };
 
+
+
 ostream & operator <<(ostream & os, const Point & s)
 {
 	
@@ -24,9 +27,23 @@ ostream & operator <<(ostream & os, const Point & s)
 	return os;
 }
 
- Point Point::operator+( Point & s)
+ Point Point::operator+(Point & s)
 {
-        return Point(x + s.x, y + s.y); // default is implied
+         int base, exponent, k;
+        
+         if (x != s.x)
+         {
+              k = (y - s.y)/(x - s.x);
+              base = k;
+              exponent = 2;
+              x = pow(base, exponent) - x - s.x;
+              y = k * (x -s.x) - y;
+              return s;
+         }
+         int m, j;
+          
+        return Point(x + s.x, y + s.y, j = 0, m = 7); // default is implied
+      
 }
 
 Point::Point(int c, int d, int f, int e)

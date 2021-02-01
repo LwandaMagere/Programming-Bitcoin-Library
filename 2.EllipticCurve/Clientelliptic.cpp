@@ -12,7 +12,7 @@ class Point
     bool operator==(Point & s);
     Point operator+(Point & s);
     friend ostream & operator <<(ostream & os, const Point & s);
-     ~Point();
+    ~Point();
                
 };
 
